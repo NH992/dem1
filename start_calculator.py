@@ -7,30 +7,19 @@ def install_requirements():
     """安装项目所需的依赖包"""
     print("正在安装依赖包...")
     try:
-        # 首先尝试使用国内镜像源安装
-        print("尝试使用国内镜像源安装...")
-        subprocess.check_call([
-            sys.executable, "-m", "pip", "install", "-r", "requirements.txt",
-            "-i", "https://pypi.tuna.tsinghua.edu.cn/simple/"
-        ])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
         print("依赖包安装成功！")
         return True
     except subprocess.CalledProcessError:
-        print("使用国内镜像源安装失败，尝试使用默认源...")
-        try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-            print("依赖包安装成功！")
-            return True
-        except subprocess.CalledProcessError:
-            print("依赖包安装失败，请检查网络连接或手动安装")
-            return False
+        print("依赖包安装失败，请检查网络连接或手动安装")
+        return False
 
 
 def run_calculator():
     """运行AI计算器"""
     print("正在启动AI计算器...")
     try:
-        subprocess.check_call([sys.executable, "ai_calculator_improved.py"])
+        subprocess.check_call([sys.executable, "ai_calculator.py"])
     except subprocess.CalledProcessError:
         print("程序运行失败")
 
