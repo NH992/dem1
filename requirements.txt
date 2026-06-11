@@ -1,0 +1,5 @@
+PyQt5==5.15.9
+pyautogui==0.9.53
+pytesseract==0.3.10
+Pillow==9.5.0
+pywin32==306
